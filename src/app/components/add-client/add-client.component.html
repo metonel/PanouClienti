@@ -1,0 +1,119 @@
+<!-- <div class="row">
+  <div class="col-md-6 mb-3">
+    <a routerLink="/" class="btn btn-link">
+    <i class="fa fa-arrow-circle-o-left"> inapoi</i></a>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div> -->
+
+<div class="card">
+  <div class="card-header">
+    <h5>adaugare client</h5>
+  </div>
+  <div class="card-body">
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)"> <!--pt a folosi template driven form am importat in app.module.ts @angular/Forms -->
+      <div class="form-group">
+        <label for="firstName">prenume:</label>
+        <input 
+          type="text"
+          class="form-control"
+          name="firstName"
+          #clientFirstName="ngModel"
+          [ngClass]="{'is-invalid' : clientFirstName.errors && clientFirstName.touched}"
+          [(ngModel)]="client.firstName"
+          minlength="2"
+          required
+        >
+        <div [hidden]="!clientFirstName.errors?.required" class="invalid-feedback"> <!--in bootstrap div-ul cu clasa invalaid-feedback ii aratat numa daca input-ul are clasa invalid-feedback -->
+          prenumele este necesar
+
+        </div>
+        <div [hidden]="!clientFirstName.errors?.minlength" class="invalid-feedback">
+          prenumele trebuie sa aiba cel putin 2 caractere
+
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="lastName">nume:</label>
+          <input 
+            type="text"
+            class="form-control"
+            name="lastName"
+            #clientLastName="ngModel"
+            [ngClass]="{'is-invalid' : clientLastName.errors && clientLastName.touched}"
+            [(ngModel)]="client.lastName"
+            minlength="2"
+            required
+          >
+          <div [hidden]="!clientLastName.errors?.required" class="invalid-feedback">
+            numele este necesar
+  
+          </div>
+          <div [hidden]="!clientLastName.errors?.minlength" class="invalid-feedback">
+            numele trebuie sa aiba cel putin 2 caractere
+  
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">email:</label>
+            <input 
+              type="text"
+              class="form-control"
+              name="email"
+              #clientEmail="ngModel"
+              [ngClass]="{'is-invalid' : clientEmail.errors && clientEmail.touched}"
+              [(ngModel)]="client.email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+            >
+            <div [hidden]="!clientEmail.errors?.required" class="invalid-feedback">
+              email-ul este necesar
+    
+            </div>
+            <div [hidden]="!clientEmail.errors?.pattern" class="invalid-feedback">
+              email incorect
+    
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label for="phone">telefon:</label>
+              <input 
+                type="text"
+                class="form-control"
+                name="phone"
+                #clientPhone="ngModel"
+                [ngClass]="{'is-invalid' : clientPhone.errors && clientPhone.touched}"
+                [(ngModel)]="client.phone"
+                minlength="10"
+                required
+              >
+              <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">
+                nr de telefon este necesar
+      
+              </div>
+              <div [hidden]="!clientPhone.errors?.minlength" class="invalid-feedback">
+                nr telefon incorect
+      
+              </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="balance">suma:</label>
+                <input 
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="client.balance"
+                  name="client.balance"
+                  #clientBalance="ngModel"
+                  [disabled]="disableBalanceOnAdd"
+                >
+              </div>
+            <input type="submit" value="adauga client" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>

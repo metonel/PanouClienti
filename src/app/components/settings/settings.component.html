@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-6 pb-3">
+        <a routerLink="/" class="btn btn-success"><i class="fa fa-arrow-circle-o-left"> Inapoi la panou</i></a>
+    </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Setari
+  </div>
+  <div class="card-body">
+    <form (submit)="onSubmit()">
+      <!-- <div class="form-group">
+        <label>nu permite creearea de utilizatori noi</label>
+        <input type="checkbox" name="allowRegistration" [checked]="settings.allowRegistration" (change)="settings.allowRegistration = !settings.allowRegistration">
+      </div> -->
+
+      <div class="form-group">
+          <label>nu permite modificarea sumei la adaugare clienti </label>
+          <input type="checkbox" name="disableBalanceOnAdd" [checked]="settings.disableBalanceOnAdd" (change)="settings.disableBalanceOnAdd = !settings.disableBalanceOnAdd">
+        </div>
+
+        <div class="form-group">
+            <label>nu permite modificarea sumei la editare clienti</label>
+            <input type="checkbox" name="disableBalanceOnEdit" [checked]="settings.disableBalanceOnEdit" (change)="settings.disableBalanceOnEdit = !settings.disableBalanceOnEdit">
+          </div>
+
+          <input type="submit" value="salveaza" class="btn btn-primary btn-block" >
+
+    </form>
+  </div>
+</div>

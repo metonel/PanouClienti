@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="text-center pb-2 pt-3">
+          <span class="text-primary"><i class="fa fa-lock"></i> Administrare Clienti </span>
+        </h2>
+        <h2 class="text-center pb-4">
+          Utilizator nou
+        </h2>
+        <form (submit)="onSubmit()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="email" required>
+          </div>
+          <div class="form-group pb-2">
+            <label for="password">Parola</label>
+            <input type="password" name="password" class="form-control" [(ngModel)]="password" required>
+          </div>
+          <input type="submit" value="creaza cont" class="btb btn-primary btn-block pb-2 pt-2">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
